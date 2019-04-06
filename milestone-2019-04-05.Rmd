@@ -9,6 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
 
 library(scales)
+library(sf)
 library(tidyverse)
 
 
@@ -48,7 +49,5 @@ ggplot(countries) +
   ) + 
   theme_light() +
   theme(legend.position = "none")
-
-  
 ```
 
