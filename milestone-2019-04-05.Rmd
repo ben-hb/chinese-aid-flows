@@ -1,0 +1,25 @@
+---
+title: "Milestone"
+author: "Benjamin Hoffner-Brodsky"
+date: "4/5/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+library(tidyverse)
+```
+
+# Data
+
+I sourced the data on Chinese aid flow from the AidData research team at William and Mary. The data was collected through two independent efforts. 
+The first sought to collect data on the details of over 3,000 financial transactions between China and countries in East Asia and the Pacific. The second 
+sought to geocode the data for each of those projects to assist with geospatial visualizations. I use both of these efforts by merging the datasets off of 
+project codes.   
+
+So far, I have merged the data and used exploratory visualizations to get a sense for the strength of correlations present between aid funding and the various
+corollary variables that I'm going to be exploring. I've also begun to clean the data and analyze which fields have sufficient data to base models off of, and which
+have sufficient NA values to make further analysis not worthwhile. Finally, I've started to work on some of the predictive models based on the DataCamp on modeling.   
+
+# Sample Visualization
