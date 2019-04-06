@@ -6,9 +6,15 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE)
 
+library(scales)
 library(tidyverse)
+
+
+all_flow <- read_csv("all_flow_classes.csv")
+
+east_asia <- read_csv("ChinasPublicDiplomacyinEastAsiaandPacific_v1.0.csv")
 ```
 
 # Data
@@ -23,3 +29,26 @@ corollary variables that I'm going to be exploring. I've also begun to clean the
 have sufficient NA values to make further analysis not worthwhile. Finally, I've started to work on some of the predictive models based on the DataCamp on modeling.   
 
 # Sample Visualization
+
+```{r sample_viz}
+
+countries <- east_asia %>% 
+  filter(receiving_country %in% c("Cambodia", "Indonesia", "Laos", "Vietnam"))
+
+ggplot(countries) +
+  geom_col(aes(x = year, y = financialpd_oof, fill = receiving_country)) +
+  facet_wrap(~receiving_country) + 
+  scale_y_continuous(labels = dollar) + 
+  labs(
+    title = "Total Financial Public Diplomacy from China during 2000-2016",
+    subtitle = "Budget Support, Humanitarian Assistance, Infrastructure Investments, and Debt Relief",
+    x = "",
+    y = "",
+    caption = "Data from AidData at William and Mary"
+  ) + 
+  theme_light() +
+  theme(legend.position = "none")
+
+  
+```
+
